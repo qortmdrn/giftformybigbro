@@ -1,13 +1,15 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 type MessagePopupProps = {
   closeModal: () => void;
 };
 
-export default function MessagePopup({ closeModal } : MessagePopupProps){
-  return <StyledMessagePopup>
-    <div className="message"></div>
-  </StyledMessagePopup>
+export default function MessagePopup({ closeModal }: MessagePopupProps) {
+  return (
+    <StyledMessagePopup>
+      <div className="message"></div>
+    </StyledMessagePopup>
+  );
 }
 
 const StyledMessagePopup = styled.div`
@@ -26,4 +28,4 @@ const StyledMessagePopup = styled.div`
     font-weight: 400;
     color: #000;
   }
-`
+`;

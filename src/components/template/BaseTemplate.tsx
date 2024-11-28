@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import styled from 'styled-components';
-import useMobileChecker from '../hooks/useMobileChecker';
+import styled from "styled-components";
+import useMobileChecker from "../hooks/useMobileChecker";
 
 export default function BaseTemplate({
   children,
@@ -11,7 +11,7 @@ export default function BaseTemplate({
   const { isMobile } = useMobileChecker();
 
   return (
-    <BaseTemplateContainer className={`${isMobile ? 'is-mobile' : ''}`}>
+    <BaseTemplateContainer className={`${isMobile ? "is-mobile" : ""}`}>
       {/* <Header /> */}
       {children}
       {/* <Footer /> */}

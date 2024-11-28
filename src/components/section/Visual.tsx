@@ -1,38 +1,41 @@
-'use client';
+"use client";
 
-import React, { useState } from "react";
+import { Modal } from "@lani.ground/react-modal";
+import { useState } from "react";
 import styled from "styled-components";
-import useMobileChecker from "../hooks/useMobileChecker";
-import { Modal } from '@lani.ground/react-modal';
 import MessagePopup from "../common/CutePopup";
+import useMobileChecker from "../hooks/useMobileChecker";
 
 interface IVisualProps {
   beforeIndex?: number;
   activeIndex?: number;
   setActiveIndex?: () => void;
-
 }
 
 export default function Visual({
   beforeIndex,
   activeIndex,
   setActiveIndex,
-}: IVisualProps){
+}: IVisualProps) {
   const { isMobile } = useMobileChecker();
   const [isCutePopupOpen, setIsCutePopupOpen] = useState<boolean>(false);
-  return <StyledVisual $isMobile={isMobile}>
-    <div className="inner">
-      <button className="" onClick={() => setIsCutePopupOpen(true)}>전역 축하 메시지 보기</button>
-      <Modal
-        name="copied-popup"
-        isOpen={isCutePopupOpen}
-        onClose={() => setIsCutePopupOpen(false)}
-        component={(closeModal) => <MessagePopup closeModal={closeModal} />}
-        dim="rgba(0, 0, 0, 0.5)"
-        centerMode
-      />
-    </div>
-  </StyledVisual>;
+  return (
+    <StyledVisual $isMobile={isMobile}>
+      <div className="inner">
+        <button className="" onClick={() => setIsCutePopupOpen(true)}>
+          전역 축하 메시지 보기
+        </button>
+        <Modal
+          name="copied-popup"
+          isOpen={isCutePopupOpen}
+          onClose={() => setIsCutePopupOpen(false)}
+          component={(closeModal) => <MessagePopup closeModal={closeModal} />}
+          dim="rgba(0, 0, 0, 0.5)"
+          centerMode
+        />
+      </div>
+    </StyledVisual>
+  );
 }
 
 const StyledVisual = styled.section<{
@@ -63,4 +66,4 @@ const StyledVisual = styled.section<{
       }
     }
   }
-`
+`;
