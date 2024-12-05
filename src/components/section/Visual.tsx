@@ -36,11 +36,15 @@ export default function Visual({
     <StyledVisual $isMobile={isMobile}>
       <div className="wrapper">
         <div className="supreme">
-          <img src="../images/logo.png" alt="WEMADE" height={86} />
+          {!isMobile && (
+            <img src="../images/logo.png" alt="WEMADE" height={86} />
+          )}
           <p className="title">동료들의 편지</p>
         </div>
 
-        <p className="subtitle">성실한 복무 완료 및 전역을 축하합니다.</p>
+        <p className="subtitle">
+          서동근님의 성실한 복무에 감사드리며 전역을 진심으로 축하합니다.
+        </p>
         <div className="inner">
           {messages.map((e, i) => {
             return (
@@ -82,51 +86,59 @@ const StyledVisual = styled.section<{
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  ${({ $isMobile }) => !$isMobile && "min-height: 100vh;"};
   position: relative;
   background: #fff;
+  ${({ $isMobile }) => $isMobile && "padding: 20px 10px;"};
   .supreme {
     display: flex;
+    img {
+      margin-left: -25px;
+      margin-top: -10px;
+    }
   }
   .title,
   .subtitle {
     color: #666;
   }
   .title {
-    font-size: 52px;
-    margin-bottom: 10px;
+    font-size: ${({ $isMobile }) => ($isMobile ? "30px" : "40px")};
+    margin-bottom: ${({ $isMobile }) => ($isMobile ? "5px" : "10px")};
+    font-weight: 900;
   }
   .subtitle {
-    font-size: 28px;
-    margin-bottom: 20px;
-    padding-left: 25px;
+    font-size: ${({ $isMobile }) => ($isMobile ? "12px" : "24px")};
+    margin-bottom: ${({ $isMobile }) => ($isMobile ? "10px" : "20px")};
   }
   .inner {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: ${({ $isMobile }) =>
+      $isMobile ? "repeat(3, 1fr)" : "repeat(5, 1fr)"};
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: ${({ $isMobile }) => ($isMobile ? "5px" : "10px")};
+    margin: 0 auto;
     .card {
-      width: 250px;
-      height: 130px;
-      border: 2px solid #14f078;
-      border-radius: 6px;
+      width: ${({ $isMobile }) => ($isMobile ? "110px" : "250px")};
+      height: ${({ $isMobile }) => ($isMobile ? "64px" : "130px")};
+      border: ${({ $isMobile }) =>
+        $isMobile ? "1px solid #14f078" : "2px solid #14f078"};
+      border-radius: ${({ $isMobile }) => ($isMobile ? "4px" : "6px")};
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 5px;
+      gap: ${({ $isMobile }) => ($isMobile ? "3px" : "5px")};
       &:hover {
         background-color: #14f078;
       }
       .team {
-        font-size: 16px;
+        font-size: ${({ $isMobile }) => ($isMobile ? "10px" : "16px")};
         font-weight: 500;
         color: #666;
       }
       .name {
-        font-size: 20px;
+        font-size: ${({ $isMobile }) => ($isMobile ? "14px" : "20px")};
         color: #000;
       }
     }

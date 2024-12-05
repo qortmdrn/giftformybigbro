@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useMobileChecker from "../hooks/useMobileChecker";
 
 type MessagePopupProps = {
   closeModal: () => void;
@@ -11,8 +12,9 @@ export default function MessagePopup({
   messageContent,
   name,
 }: MessagePopupProps) {
+  const { isMobile } = useMobileChecker();
   return (
-    <StyledMessagePopup>
+    <StyledMessagePopup $isMobile={isMobile}>
       <div className="name">{name}</div>
       <div
         className="message"
@@ -25,38 +27,41 @@ export default function MessagePopup({
   );
 }
 
-const StyledMessagePopup = styled.div`
-  width: 460px;
+const StyledMessagePopup = styled.div<{
+  $isMobile: boolean;
+}>`
+  width: ${({ $isMobile }) => ($isMobile ? "320px" : "460px")};
   height: auto;
-  padding: 20px 20px 40px;
-  border-radius: 10px;
+  padding: ${({ $isMobile }) =>
+    $isMobile ? "10px 10px 20px" : "20px 20px 40px"};
+  border-radius: ${({ $isMobile }) => ($isMobile ? "5px" : "10px")};
   background: #fff;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: ${({ $isMobile }) => ($isMobile ? "9px" : "15px")};
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
   .name {
     text-align: left;
-    font-size: 24px;
+    font-size: ${({ $isMobile }) => ($isMobile ? "18px" : "24px")};
     color: #14f078;
     font-weight: 900;
   }
   .message {
     text-align: left;
     line-height: 1.5;
-    font-size: 18px;
+    font-size: ${({ $isMobile }) => ($isMobile ? "14px" : "18px")};
     font-weight: 400;
     color: #444;
     word-break: keep-all;
   }
   .close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 20px;
-    height: 20px;
+    top: ${({ $isMobile }) => ($isMobile ? "10px" : "20px")};
+    right: ${({ $isMobile }) => ($isMobile ? "10px" : "20px")};
+    width: ${({ $isMobile }) => ($isMobile ? "15px" : "20px")};
+    height: ${({ $isMobile }) => ($isMobile ? "15px" : "20px")};
     background-size: cover;
     background-image: url(.././images/close.svg);
     font-size: 0;
