@@ -46,12 +46,6 @@ export const armyMessages: TteamMessages[] = [
     team: "병장",
     message: ``,
   },
-  // {
-  //   name: "김의기",
-  //   team: "병장",
-  //   message: ``,
-  // },
-
   {
     name: "박현수",
     team: "상병",
@@ -258,7 +252,11 @@ export const otherTeamMessages: TteamMessages[] = [
   {
     name: "장민훈 대리님",
     team: "커뮤니티팀",
-    message: `ヱ생 끝 행복 んı작! nㅓ동근 ㅍr○l팅`,
+    message: `삼행んı를 ズløł볼つㅓl요<br/>
+nㅓ! 동근<br/>
+동! 안○l○F<br/>
+근! 데 군ㄷН 갔⊂ト 오면 금방 nㅓ른○l○F<br/>
+ヱ생 끝 행복 んı작! nㅓ동근 ㅍr○l팅`,
   },
   {
     name: "박진수 대리님",
