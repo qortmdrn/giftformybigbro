@@ -15,7 +15,7 @@ export default function MessagePopup({
   const { isMobile } = useMobileChecker();
   return (
     <StyledMessagePopup $isMobile={isMobile}>
-      <div className="name">{name}</div>
+      <div className="name">From. {name}</div>
       <div
         className="message"
         dangerouslySetInnerHTML={{ __html: messageContent }}
@@ -55,6 +55,10 @@ const StyledMessagePopup = styled.div<{
     font-weight: 400;
     color: #444;
     word-break: keep-all;
+    .bold {
+      color: #000;
+      font-weight: 900;
+    }
   }
   .close {
     position: absolute;

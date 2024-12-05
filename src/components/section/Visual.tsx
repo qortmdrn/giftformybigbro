@@ -122,13 +122,14 @@ const StyledVisual = styled.section<{
       width: ${({ $isMobile }) => ($isMobile ? "110px" : "250px")};
       height: ${({ $isMobile }) => ($isMobile ? "64px" : "130px")};
       border: ${({ $isMobile }) =>
-        $isMobile ? "1px solid #14f078" : "2px solid #14f078"};
+        $isMobile ? "1px solid #14f078" : "1px solid #14f078"};
       border-radius: ${({ $isMobile }) => ($isMobile ? "4px" : "6px")};
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: ${({ $isMobile }) => ($isMobile ? "3px" : "5px")};
+      /* background: #cecece; */
       &:hover {
         background-color: #14f078;
       }
