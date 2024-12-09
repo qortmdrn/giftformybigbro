@@ -27,10 +27,13 @@ export default function RollingPaper({
   const messages = [...devTeamMessages, ...otherTeamMessages, ...armyMessages];
   const [currentMessage, setCurrentMessage] = useState<string>("");
   const [currentName, setCurrentName] = useState<string>("");
+  const [isAuthenticationOpen, setIsAuthenticationOpen] =
+    useState<boolean>(false);
   const clickCard = (str: string, name: string) => {
     setCurrentMessage(str);
     setCurrentName(name);
-    setIsMessagePopupOpen(true);
+    // setIsMessagePopupOpen(true);
+    setIsAuthenticationOpen(true);
   };
   return (
     <StyledRollingPaper $isMobile={isMobile} id="rolling">
