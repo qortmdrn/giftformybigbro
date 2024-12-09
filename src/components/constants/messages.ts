@@ -240,7 +240,7 @@ export const otherTeamMessages: TteamMessages[] = [
   {
     name: "천승은 대리님",
     team: "DB운영팀",
-    message: ``,
+    message: `동근님 !! 다나까 말투 쓰시던때가 엊그제같은데 소집해제라니 감회가 새롭고 섭섭하지만 축하드려요🤣🎉👏👏<br/>항상 열정적이셔서 어디가서도 잘 하실거라 믿어요 건강하시고 건승하세요! `,
   },
   {
     name: "이주희 님",
