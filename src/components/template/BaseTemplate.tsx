@@ -20,5 +20,5 @@ export default function BaseTemplate({
 }
 
 const BaseTemplateContainer = styled.div`
-  background: #fff;
+  background: #000;
 `;

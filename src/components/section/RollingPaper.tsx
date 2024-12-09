@@ -11,17 +11,17 @@ import {
 } from "../constants/messages";
 import useMobileChecker from "../hooks/useMobileChecker";
 
-interface IVisualProps {
+interface IRollingPaperProps {
   beforeIndex?: number;
   activeIndex?: number;
   setActiveIndex?: () => void;
 }
 
-export default function Visual({
+export default function RollingPaper({
   beforeIndex,
   activeIndex,
   setActiveIndex,
-}: IVisualProps) {
+}: IRollingPaperProps) {
   const { isMobile } = useMobileChecker();
   const [isMessagePopupOpen, setIsMessagePopupOpen] = useState<boolean>(false);
   const messages = [...devTeamMessages, ...otherTeamMessages, ...armyMessages];
@@ -33,7 +33,7 @@ export default function Visual({
     setIsMessagePopupOpen(true);
   };
   return (
-    <StyledVisual $isMobile={isMobile}>
+    <StyledRollingPaper $isMobile={isMobile} id="rolling">
       <div className="wrapper">
         <div className="supreme">
           {!isMobile && (
@@ -73,11 +73,11 @@ export default function Visual({
           />
         </div>
       </div>
-    </StyledVisual>
+    </StyledRollingPaper>
   );
 }
 
-const StyledVisual = styled.section<{
+const StyledRollingPaper = styled.section<{
   $isMobile: boolean;
 }>`
   display: flex;
@@ -85,8 +85,7 @@ const StyledVisual = styled.section<{
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  ${({ $isMobile }) => !$isMobile && "min-height: 100vh;"};
+  height: ${({ $isMobile }) => ($isMobile ? "100%" : "100vh")};
   position: relative;
   background: #fff;
   ${({ $isMobile }) => $isMobile && "padding: 20px 10px;"};

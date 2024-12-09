@@ -5,11 +5,14 @@ import {
   FullpageContainer,
   FullpageSection,
 } from "@shinyongjun/react-fullpage";
+import "@shinyongjun/react-fullpage/css";
 import { useState } from "react";
 import styled from "styled-components";
+import Footer from "../common/Footer";
 import useMobileChecker from "../hooks/useMobileChecker";
 import BaseTemplate from "../template/BaseTemplate";
-import Visual from "./Visual";
+import RollingPaper from "./RollingPaper";
+import SectionWiki from "./Wiki";
 
 export default function MainWrapper() {
   const [beforeIndex, setBeforeIndex] = useState<number>(0);
@@ -20,17 +23,25 @@ export default function MainWrapper() {
       <StyledMainWrapper>
         {isMobile ? (
           <>
-            <Visual />
+            <SectionWiki />
+            <RollingPaper />
+            <Footer />
           </>
         ) : (
           <FullpageContainer
-            transitionDuration={1300}
+            transitionDuration={700}
             onBeforeChange={setBeforeIndex}
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}
           >
             <FullpageSection>
-              <Visual />
+              <SectionWiki />
+            </FullpageSection>
+            <FullpageSection>
+              <RollingPaper />
+            </FullpageSection>
+            <FullpageSection isAutoHeight={true}>
+              <Footer />
             </FullpageSection>
           </FullpageContainer>
         )}
@@ -53,6 +64,7 @@ const StyledMainWrapper = styled.main`
     }
   }
   min-width: ${config.$desktopMaxWidth};
+  background: #000;
   .has_footer {
     width: 100%;
     display: flex;

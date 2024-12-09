@@ -59,6 +59,9 @@ const StyledMessagePopup = styled.div<{
       color: #000;
       font-weight: 900;
     }
+    .imageimage {
+      width: ${({ $isMobile }) => ($isMobile ? "260px" : "400px")};
+    }
   }
   .close {
     position: absolute;
