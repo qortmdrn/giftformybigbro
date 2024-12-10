@@ -15,7 +15,7 @@ export default function SectionWiki() {
               <td className="tg-0pky" style={{ width: "25%" }}>
                 이름
               </td>
-              <td className="tg-0pky">서동근</td>
+              <td className="tg-0pky">서동근 (徐東槿)</td>
             </tr>
             <tr>
               <td className="tg-0lax" rowSpan={2}>
@@ -62,7 +62,7 @@ export default function SectionWiki() {
                 <br />
                 서울대학교 (자유전공학부 16학번 / 군휴학)
                 <button>
-                  <p>[2]</p>
+                  <p>[3]</p>
                   <span className="more">2025학년도 1학기 복학 예정</span>
                 </button>
               </td>
@@ -72,7 +72,7 @@ export default function SectionWiki() {
               <td className="tg-0pky">
                 부모님, 남동생 1명
                 <button>
-                  <p>[3]</p>
+                  <p>[4]</p>
                   <span className="more">
                     2000년생으로, 페이지 제작자인 백승우와 동갑이다.
                   </span>
@@ -80,11 +80,15 @@ export default function SectionWiki() {
               </td>
             </tr>
             <tr>
+              <td className="tg-0pky">종교</td>
+              <td className="tg-0pky">천주교 (세례명: 베드로)</td>
+            </tr>
+            <tr>
               <td className="tg-0pky">MBTI</td>
               <td className="tg-0pky">
                 ESTJ
                 <button>
-                  <p>[4]</p>
+                  <p>[5]</p>
                   <span className="more">본인이 구두로 밝힘.</span>
                 </button>
               </td>
@@ -100,7 +104,7 @@ export default function SectionWiki() {
               <td className="tg-0pky">
                 밥볶다, 삼미칼국수, 역전우동, 베이징스토리
                 <button>
-                  <p>[5]</p>
+                  <p>[6]</p>
                   <span className="more">
                     사실상 무엇이든 잘 먹는 편. 판교에서는 회사에서 가까운 곳을
                     선호하는듯 하다.
@@ -161,6 +165,7 @@ const StyledSectionWiki = styled.section<{
           height: 50px;
           display: none;
           z-index: 78;
+          color: #000;
         }
         &:hover {
           .more {
