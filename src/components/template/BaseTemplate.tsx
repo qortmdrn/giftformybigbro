@@ -12,9 +12,7 @@ export default function BaseTemplate({
 
   return (
     <BaseTemplateContainer className={`${isMobile ? "is-mobile" : ""}`}>
-      {/* <Header /> */}
       {children}
-      {/* <Footer /> */}
     </BaseTemplateContainer>
   );
 }

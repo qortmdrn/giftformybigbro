@@ -24,6 +24,7 @@ export default function MainWrapper() {
         {isMobile ? (
           <>
             <SectionWiki />
+            {/* <Achievements /> */}
             <RollingPaper />
             <Footer />
           </>
@@ -37,6 +38,9 @@ export default function MainWrapper() {
             <FullpageSection>
               <SectionWiki />
             </FullpageSection>
+            {/* <FullpageSection>
+              <Achievements />
+            </FullpageSection> */}
             <FullpageSection>
               <RollingPaper />
             </FullpageSection>

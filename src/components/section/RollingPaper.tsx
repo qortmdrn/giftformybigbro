@@ -3,6 +3,7 @@
 import { Modal } from "@lani.ground/react-modal";
 import { useState } from "react";
 import styled from "styled-components";
+import Authentication from "../common/Authentication";
 import MessagePopup from "../common/MessagePopup";
 import {
   armyMessages,
@@ -29,11 +30,25 @@ export default function RollingPaper({
   const [currentName, setCurrentName] = useState<string>("");
   const [isAuthenticationOpen, setIsAuthenticationOpen] =
     useState<boolean>(false);
-  const clickCard = (str: string, name: string) => {
+  const [isDonggeun, setIsDonggeun] = useState<boolean>(false);
+  const [isRead, setIsRead] = useState<boolean[]>(Array(40).fill(false));
+  const updateElement = (index: number, newValue: boolean) => {
+    setIsRead((prevArr) => {
+      // 배열 복사 및 변경
+      const newArr = [...prevArr];
+      newArr[index] = newValue;
+      return newArr; // 새로운 배열로 상태 갱신
+    });
+  };
+  const clickCard = (str: string, name: string, idx: number) => {
     setCurrentMessage(str);
     setCurrentName(name);
-    // setIsMessagePopupOpen(true);
-    setIsAuthenticationOpen(true);
+    if (isDonggeun) {
+      setIsMessagePopupOpen(true);
+      updateElement(idx, true);
+    } else {
+      setIsAuthenticationOpen(true);
+    }
   };
   return (
     <StyledRollingPaper $isMobile={isMobile} id="rolling">
@@ -53,16 +68,25 @@ export default function RollingPaper({
             return (
               <button
                 className="card"
-                onClick={() => clickCard(e.message, e.name)}
+                onClick={() => clickCard(e.message, e.name, i)}
               >
                 <p className="team">{e.team}</p>
                 <p className="name">{e.name}</p>
+                {isRead[i] && (
+                  <div className="read">
+                    <img
+                      src="../images/check.png"
+                      alt="read"
+                      height={isMobile ? 10 : 20}
+                    />
+                  </div>
+                )}
               </button>
             );
           })}
           <Modal
             name="copied-popup"
-            isOpen={isMessagePopupOpen}
+            isOpen={isMessagePopupOpen && isDonggeun}
             onClose={() => setIsMessagePopupOpen(false)}
             component={(closeModal) => (
               <MessagePopup
@@ -74,6 +98,24 @@ export default function RollingPaper({
             dim="rgba(0, 0, 0, 0.7)"
             centerMode
           />
+          {!isDonggeun && (
+            <>
+              <Modal
+                name="copied-popup"
+                isOpen={isAuthenticationOpen}
+                onClose={() => setIsAuthenticationOpen(false)}
+                component={(closeModal) => (
+                  <Authentication
+                    closeModal={closeModal}
+                    setIsMessagePopupOpen={setIsMessagePopupOpen}
+                    setIsDonggeun={setIsDonggeun}
+                  />
+                )}
+                dim="rgba(0, 0, 0, 0.7)"
+                centerMode
+              />
+            </>
+          )}
         </div>
       </div>
     </StyledRollingPaper>
@@ -90,7 +132,7 @@ const StyledRollingPaper = styled.section<{
   width: 100%;
   height: ${({ $isMobile }) => ($isMobile ? "100%" : "100vh")};
   position: relative;
-  background: #fff;
+  background: #f1f1f1;
   ${({ $isMobile }) => $isMobile && "padding: 20px 10px;"};
   .supreme {
     display: flex;
@@ -123,15 +165,14 @@ const StyledRollingPaper = styled.section<{
     .card {
       width: ${({ $isMobile }) => ($isMobile ? "110px" : "250px")};
       height: ${({ $isMobile }) => ($isMobile ? "64px" : "130px")};
-      border: ${({ $isMobile }) =>
-        $isMobile ? "1px solid #14f078" : "1px solid #14f078"};
+      border: 1px solid #14f078;
       border-radius: ${({ $isMobile }) => ($isMobile ? "4px" : "6px")};
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: ${({ $isMobile }) => ($isMobile ? "3px" : "5px")};
-      /* background: #cecece; */
+      position: relative;
       &:hover {
         background-color: #14f078;
       }
@@ -143,6 +184,16 @@ const StyledRollingPaper = styled.section<{
       .name {
         font-size: ${({ $isMobile }) => ($isMobile ? "14px" : "20px")};
         color: #000;
+      }
+      .read {
+        position: absolute;
+        font-size: 0;
+        right: ${({ $isMobile }) => ($isMobile ? "5px" : "15px")};
+        top: ${({ $isMobile }) => ($isMobile ? "5px" : "15px")};
+        /* width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 5px; */
       }
     }
   }

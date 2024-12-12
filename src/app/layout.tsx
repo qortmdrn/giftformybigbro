@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "GOODBYE Donggeun",
     description: "Discharge for WEMADE Service",
-    images: "/images/og-image.webp",
+    images: "/images/gpt-image.webp",
   },
   icons: {
     icon: `/favicon.ico`,

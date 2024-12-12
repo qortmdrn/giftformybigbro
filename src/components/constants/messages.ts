@@ -234,17 +234,21 @@ export const otherTeamMessages: TteamMessages[] = [
   {
     name: "석헌종 부장님",
     team: "클라우드운영1팀",
-    message: ``,
+    message: `(추후 업데이트 예정)`,
   },
   {
     name: "최민지 대리님",
     team: "클라우드운영1팀",
-    message: ``,
+    message: `동근님! 안녕하세요<br/>
+클라우드 운영팀 최민지입니다.<br/><br/>
+먼저 전역 후 민간인이 되신걸 축하드립니다!!<br/> 
+AKS 투입 후 같이 작업하면서 공부도 많이되고 즐거웠습니다.<br/> 
+앞으로도 꽃길 걸으시길 바랍니다~! `,
   },
   {
     name: "김해동 차장님",
     team: "DB운영팀",
-    message: ``,
+    message: `(추후 업데이트 예정)`,
   },
   {
     name: "천승은 대리님",
@@ -254,7 +258,8 @@ export const otherTeamMessages: TteamMessages[] = [
   {
     name: "이주희 님",
     team: "DB운영팀",
-    message: ``,
+    message: `동근님 그동안 고생 많으셨습니다!!<br/>
+위메이드에서 쌓은 발판으로 더 좋은곳 가십셔!! 화이팅!!`,
   },
   {
     name: "김다영 실장님",

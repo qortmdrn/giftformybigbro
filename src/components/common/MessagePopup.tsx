@@ -54,7 +54,6 @@ const StyledMessagePopup = styled.div<{
     font-size: ${({ $isMobile }) => ($isMobile ? "14px" : "18px")};
     font-weight: 400;
     color: #444;
-    word-break: keep-all;
     .bold {
       color: #000;
       font-weight: 900;
