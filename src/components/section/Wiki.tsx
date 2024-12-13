@@ -33,6 +33,12 @@ export default function SectionWiki() {
           <br />
           705일간 이루어낸 성과 및 업적들이 담겨 있습니다.
           <br />
+          <span
+            style={{ fontSize: isMobile ? "8px" : "15px", fontWeight: "500" }}
+          >
+            모바일의 경우, 2페이지는 생략되어 있습니다.
+          </span>
+          <br />
           <br />
           3페이지에는 위메이드에서 동근님과 함께 동고동락한 위메이드 동료 분들의
           마음이 담긴 편지가 준비되어 있습니다.
