@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://events.sdg.com/discharge`),
+  metadataBase: new URL(`https://donggeun.vercel.app`),
   title: "GOODBYE Donggeun",
   description: "Discharge for WEMADE Service",
   viewport: "width=device-width, initial-scale=1.0",
