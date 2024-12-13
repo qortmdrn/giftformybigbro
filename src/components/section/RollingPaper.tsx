@@ -130,10 +130,11 @@ const StyledRollingPaper = styled.section<{
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: ${({ $isMobile }) => ($isMobile ? "100%" : "100vh")};
+  height: ${({ $isMobile }) => ($isMobile ? "100%" : "auto")};
   position: relative;
   background: #f1f1f1;
-  ${({ $isMobile }) => $isMobile && "padding: 20px 10px;"};
+  ${({ $isMobile }) =>
+    $isMobile ? "padding: 20px 10px;" : "min-height: 100vh; overflow: auto;"};
   .supreme {
     display: flex;
     img {

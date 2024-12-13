@@ -243,12 +243,13 @@ const StyledSectionWiki = styled.section<{
   align-items: ${({ $isMobile }) => ($isMobile ? "center" : "flex-start")};
   justify-content: ${({ $isMobile }) => ($isMobile ? "flex-start" : "center")};
   width: 100%;
-  height: ${({ $isMobile }) => ($isMobile ? "100%" : "100vh")};
+  height: ${({ $isMobile }) => ($isMobile ? "100%" : "auto")};
+  ${({ $isMobile }) => !$isMobile && "min-height: 100vh; overflow: auto;"};
   position: relative;
   background: #c2c2c2;
   padding: ${({ $isMobile }) => ($isMobile ? "20px 5px" : "25px")};
-
   font-family: ${NotoSans.style.fontFamily};
+
   .left-inner {
     width: ${({ $isMobile }) => ($isMobile ? "360px" : "1200px")};
     ${({ $isMobile }) => $isMobile && "margin-bottom: 30px"};

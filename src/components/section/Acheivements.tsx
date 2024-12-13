@@ -105,10 +105,12 @@ const StyledAchievements = styled.section<{
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: ${({ $isMobile }) => ($isMobile ? "100%" : "100vh")};
+  height: ${({ $isMobile }) => ($isMobile ? "100%" : "auto")};
   position: relative;
   background: #dfdfdf;
   padding: 30px 10px;
+  min-height: 100vh;
+  overflow: auto;
   .more {
     position: absolute;
     z-index: 40;
