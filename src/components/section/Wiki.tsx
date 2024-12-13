@@ -41,6 +41,13 @@ export default function SectionWiki() {
           <br />
           <br />
           <br />
+          다시 한 번 동근님의 전역을 축하드리며,
+          <br />
+          게임사업부문의 남은 6명의 병역특례 직원들도 모두 <br />
+          동근님이 그간 쌓아오신 명성에 누가 되지 않게 열심히 근무하도록
+          하겠습니다.
+          <br />
+          <br />
           롤링 페이퍼 제작에 도움을 주신 약 40명의 위메이드 임직원 분들께 감사
           인사 올립니다.
           <br />
@@ -241,7 +248,7 @@ const StyledSectionWiki = styled.section<{
     ${({ $isMobile }) => $isMobile && "margin-bottom: 30px"};
     .left-top {
       font-size: ${({ $isMobile }) => ($isMobile ? "20px" : "40px")};
-      margin-bottom: ${({ $isMobile }) => ($isMobile ? "30px" : "160px")};
+      margin-bottom: ${({ $isMobile }) => ($isMobile ? "30px" : "120px")};
     }
     .left-title {
       font-size: ${({ $isMobile }) => ($isMobile ? "26px" : "54px")};

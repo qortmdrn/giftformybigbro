@@ -11,6 +11,7 @@ import styled from "styled-components";
 import Footer from "../common/Footer";
 import useMobileChecker from "../hooks/useMobileChecker";
 import BaseTemplate from "../template/BaseTemplate";
+import Achievements from "./Acheivements";
 import RollingPaper from "./RollingPaper";
 import SectionWiki from "./Wiki";
 
@@ -38,9 +39,9 @@ export default function MainWrapper() {
             <FullpageSection>
               <SectionWiki />
             </FullpageSection>
-            {/* <FullpageSection>
+            <FullpageSection>
               <Achievements />
-            </FullpageSection> */}
+            </FullpageSection>
             <FullpageSection>
               <RollingPaper />
             </FullpageSection>
